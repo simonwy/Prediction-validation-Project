@@ -5,14 +5,14 @@ import sys
 # Open files
 def loadData(file_name):
     file_path = abspath(file_name)
-    try: # to deal with eage case of no file found
-        handle = open(file_path)
+    try: # to avoid crash the system in case of invalid or NULL file_path
+        myfile = open(file_path)
     except:
-        print("Cannot find file:", file_name)
+        print("Error in openning the file:", file_name)
     
     data = []
-    for line in handle:
-        data.append(line)
+    for item in myfile:
+        data.append(item)
     
     return data
 
